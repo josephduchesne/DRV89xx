@@ -1,0 +1,21 @@
+#ifndef DRV89xxRegister_h
+#define DRV89xxRegister_h
+
+// map for DRV8912/10, mostly the same for other DRV89xx
+enum class DRV89xxRegister : byte {
+  IC_STAT=0,
+  OCP_STAT_1, OCP_STAT_2, OCP_STAT_3,
+  OLD_STAT_1, OLD_STAT_2, OLD_STAT_3,
+  CONFIG_CTRL,
+  OP_CTRL_1, OP_CTRL_2, OP_CTRL_3,
+  PWM_CTRL_1, PWM_CTRL_2, FW_CTRL_1,
+  FW_CTRL_2,
+  PWM_MAP_CTRL_1, PWM_MAP_CTRL_2, PWM_MAP_CTRL_3,
+  PWM_FREQ_CTRL,
+  PWM_DUTY_CTRL_1, PWM_DUTY_CTRL_2, PWM_DUTY_CTRL_3, PWM_DUTY_CTRL_4,
+  SR_CTRL_1, SR_CTRL_2,
+  OLD_CTRL_1, OLD_CTRL_2, OLD_CTRL_3, OLD_CTRL_4
+};
+
+
+#endif

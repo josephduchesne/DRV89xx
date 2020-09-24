@@ -1,0 +1,26 @@
+#######################################
+# Syntax Coloring Map For DRV89xx
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DRV89xx	KEYWORD1
+DRV89xxMotor	KEYWORD1
+DRV89xxRegister	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin KEYWORD2
+configMotor KEYWORD2
+writeRegister KEYWORD2
+readRegister KEYWORD2
+readErrorStatus KEYWORD2
+writeConfig KEYWORD2
+updateConfig KEYWORD2
+setMotor KEYWORD2
+disableMotor KEYWORD2
+debugConfig KEYWORD2
