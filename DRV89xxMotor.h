@@ -19,6 +19,7 @@
 #define HIGH_SIDE 1
 
 typedef struct DRV89xxHalfBridge { 
+    byte id;
     byte enable_register;
     byte pwm_map_register;
     byte pwm_ctrl_register;
@@ -29,8 +30,8 @@ typedef struct DRV89xxHalfBridge {
 class DRV89xxMotor
 {
   public:
-    DRV89xxMotor() : DRV89xxMotor(0, 0, 0) {};
-    DRV89xxMotor(byte hb1, byte hb2, byte pwm_channel);
+    DRV89xxMotor() : DRV89xxMotor(0, 0, 0, 0) {};
+    DRV89xxMotor(byte hb1, byte hb2, byte pwm_channel, byte reverse_delay);
 
     // This function pre-calculates register IDs and bitshift offsets for the selected half-bridge configuration
     void populateHalfbridgeOffsets(byte offset, byte half_bridge);
@@ -48,9 +49,13 @@ class DRV89xxMotor
     int8_t _direction = 0;  // -1 = rev, 0 = brake, 1 = forward
     byte _speed = 0;  // 0 to 255
     bool _enabled = false;  // if disabled, motor is free spinning not braking mode, and PWM is not enabled
+    bool _reverse_delay = 0;  // number of milliseconds to brake before reversing direction
+    long int _last_forward = 0;  // last time forward was active
+    long int _last_reverse = 0;  // last time reverse was active
+    
 
     // configuration
-    byte _pwm_channel;
+    byte _pwm_channel = 0;
     DRV89xxHalfBridge _half_bridge[2];
 
     // internal functions
